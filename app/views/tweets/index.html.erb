@@ -1,2 +1,15 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<%= form_tag(tweets_search_path, method: "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search User's last 20 tweets" %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+<br>
+<ul>
+  <% if @tweets.present? %>
+    <% @tweets.each do |tweet| %>
+      <li><%= tweet.full_text %></li>
+    <% end %>
+
+  <% else %>
+    <li>User has no tweets</li>
+    <% end %>
+</ul>

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'tweets/index'
-
-  get 'tweets/client'
+  root 'tweets#index'
 
   get 'tweets/search'
 
