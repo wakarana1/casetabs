@@ -22,3 +22,10 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Ignore application configuration
+env_vars.env
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
+/config/local_env.yml
