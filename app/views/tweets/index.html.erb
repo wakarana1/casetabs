@@ -1,15 +1,18 @@
 <%= form_tag(tweets_search_path, method: "get") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search User's last 20 tweets" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search user's last 20 tweets" %>
   <%= submit_tag "Search", name: nil %>
 <% end %>
 <br>
+<h1>
+  Latest tweets from: @<%= @user %>
+</h1>
 <ul>
-  <% if @tweets.present? %>
-    <% @tweets.each do |tweet| %>
-      <li><%= tweet.full_text %></li>
+  <% @tweets.each do |tweet| %>
+    <li><%= tweet.full_text %></li>
+    <% if !tweet.in_reply_to_screen_name.nil? %>
+      <li>
+        <%= link_to tweet.in_reply_to_screen_name, tweets_search_path(search: tweet.in_reply_to_screen_name) %>
+      </li>
     <% end %>
-
-  <% else %>
-    <li>User has no tweets</li>
-    <% end %>
+  <% end %>
 </ul>

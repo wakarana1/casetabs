@@ -37,6 +37,8 @@ gem 'dotenv-rails'
 
 gem 'twitter'
 
+gem 'figaro'
+
 gem 'nokogiri', '>= 1.3.3'
 
 group :development, :test do
