@@ -8,11 +8,12 @@
 </h1>
 <ul>
   <% @tweets_and_mentions.each do |tweet, mention| %>
-    <li class="no-bullets"><%= tweet %></li>
+    <li class="no-bullets"><b><%= tweet %></b></li>
     <% if !mention.nil? %>
       <li class="no-bullets">
+        <i>Twitter users mentioned:</i>
         <% mention.each do |name| %>
-        <%= link_to name, tweets_search_path(search: name) %>
+          <%= link_to name, tweets_search_path(search: name) %>
         <% end %>
       </li>
     <% end %>
