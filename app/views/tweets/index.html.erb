@@ -7,11 +7,13 @@
   Latest tweets from: @<%= @user %>
 </h1>
 <ul>
-  <% @tweets.each do |tweet| %>
-    <li class="no-bullets"><%= tweet.full_text %></li>
-    <% if !tweet.in_reply_to_screen_name.nil? %>
+  <% @tweets_and_mentions.each do |tweet, mention| %>
+    <li class="no-bullets"><%= tweet %></li>
+    <% if !mention.nil? %>
       <li class="no-bullets">
-        Replying to <%= link_to tweet.in_reply_to_screen_name, tweets_search_path(search: tweet.in_reply_to_screen_name) %>
+        <% mention.each do |name| %>
+        <%= link_to name, tweets_search_path(search: name) %>
+        <% end %>
       </li>
     <% end %>
     <br>

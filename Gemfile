@@ -37,6 +37,8 @@ gem 'dotenv-rails'
 
 gem 'twitter'
 
+gem 'twitter-text', '~> 1.13', '>= 1.13.4'
+
 gem 'figaro'
 
 gem 'nokogiri', '>= 1.3.3'
